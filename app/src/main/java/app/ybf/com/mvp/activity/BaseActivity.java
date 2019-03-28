@@ -1,6 +1,5 @@
 package app.ybf.com.mvp.activity;
 
-
 import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -60,5 +59,6 @@ public abstract  class BaseActivity extends AppCompatActivity {
     public abstract void setTitle(TextView tv_title);
 
     public void setTitleImag(ImageView img_title) {};
+
 
 }

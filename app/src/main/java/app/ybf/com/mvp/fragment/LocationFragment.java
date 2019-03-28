@@ -7,6 +7,16 @@ import app.ybf.com.mvp.R;
  */
 public class LocationFragment extends BaseFragment {
     @Override
+    public void initView() {
+
+    }
+
+    @Override
+    public void initDate() {
+
+    }
+
+    @Override
     public int setFragmtContentView() {
         return R.layout.fragment_location;
     }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 
+import app.ybf.com.mvp.MyApplication;
 import app.ybf.com.mvp.R;
 import app.ybf.com.mvp.Utils.LogUtils;
 import app.ybf.com.mvp.Utils.SharedPreferencesHelper;
@@ -17,6 +18,7 @@ public class SplashActivity extends Activity {
     private String TAG = getClass().getSimpleName();
 
     private boolean isFrist = false;
+    private boolean isopen = false;
 
     /**
      * 1.进入splashActivity 页面
@@ -38,26 +40,31 @@ public class SplashActivity extends Activity {
         }
         setContentView(R.layout.activity_splas);
         findViewById(R.id.Ly_splash).setBackgroundResource(R.mipmap.bg_f);
+        if(MyApplication.isopen){
+            enterMainActivity(0);
+        }else{
+            enterMainActivity(2000);
+        }
 
-        enterMainActivity();
 
     }
 
     /**
      * 延时2秒进入主界面
      */
-    public void enterMainActivity() {
+    public void enterMainActivity(int times) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 statrMainActivity();
 
             }
-        }, 2000);
+        }, times);
     }
 
     public void statrMainActivity(){
         startActivity(new Intent(this, MainActivity.class));
+        MyApplication.isopen = true;
         finish();
     }
 }

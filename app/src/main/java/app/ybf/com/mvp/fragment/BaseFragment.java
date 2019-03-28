@@ -27,6 +27,8 @@ public abstract  class BaseFragment extends Fragment {
         return view;
     }
 
+    public abstract void initView();
+    public abstract void initDate();
     public abstract int setFragmtContentView();
     @Override
     public void onStop() {

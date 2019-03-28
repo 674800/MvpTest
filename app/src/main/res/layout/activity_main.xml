@@ -46,17 +46,32 @@
                 android:drawableTop="@drawable/radiobutton_bg_home"
                 android:text="Home" />
 
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary" />
+
             <RadioButton
                 android:id="@+id/rb_location"
                 style="@style/radiobutton_style"
                 android:drawableTop="@drawable/radiobutton_bg_location"
                 android:text="Location" />
 
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary" />
+
             <RadioButton
                 android:id="@+id/rb_like"
                 style="@style/radiobutton_style"
                 android:drawableTop="@drawable/radiobutton_bg_like"
                 android:text="@Like" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary" />
 
             <RadioButton
                 android:id="@+id/rb_me"

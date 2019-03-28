@@ -8,6 +8,7 @@ import android.content.Context;
  */
 public class MyApplication extends Application {
     private  static Context mContext;
+    public static  boolean isopen =false;
     @Override
     public void onCreate() {
         super.onCreate();
