@@ -1,16 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <!--<FrameLayout-->
+    <!--android:id="@+id/fragment_layout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
 
-    <FrameLayout
-        android:id="@+id/fragment_layout"
+    <!--</FrameLayout>-->
+    <LinearLayout
+        android:id="@+id/layout_contentView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.v4.view.ViewPager>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_home"
+                style="@style/radiobutton_style"
+                android:checked="true"
+                android:drawableTop="@drawable/radiobutton_bg_home"
+                android:text="Home" />
+
+            <RadioButton
+                android:id="@+id/rb_location"
+                style="@style/radiobutton_style"
+                android:drawableTop="@drawable/radiobutton_bg_location"
+                android:text="Location" />
+
+            <RadioButton
+                android:id="@+id/rb_like"
+                style="@style/radiobutton_style"
+                android:drawableTop="@drawable/radiobutton_bg_like"
+                android:text="@Like" />
+
+            <RadioButton
+                android:id="@+id/rb_me"
+                style="@style/radiobutton_style"
+                android:drawableTop="@drawable/radiobutton_bg_me"
+                android:text="Persion" />
+
+
+        </RadioGroup>
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/left"
@@ -18,60 +74,52 @@
         android:layout_height="match_parent"
         android:layout_gravity="left"
         android:background="@mipmap/bg_f">
+
         <TextView
             android:id="@+id/tv_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="个人信息"/>
+            android:text="个人信息"
+            android:textSize="30sp" />
+
         <RelativeLayout
-            android:layout_below="@id/tv_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/tv_info"
             android:orientation="vertical">
+
             <Button
                 android:id="@+id/btn1"
-                android:text="test1"
-                android:textSize="30sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
+                android:text="test1"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/btn2"
-                android:text="test2"
-                android:layout_below="@id/btn1"
-                android:textSize="30sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
+                android:layout_below="@id/btn1"
+                android:text="test2"
+                android:textSize="30sp" />
+
             <Button
                 android:id="@+id/btn3"
-                android:text="test3"
-                android:layout_below="@id/btn2"
-                android:textSize="30sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
+                android:layout_below="@id/btn2"
+                android:text="test3"
+                android:textSize="30sp" />
+
             <Button
                 android:id="@+id/btn4"
-                android:text="test4"
-                android:layout_below="@id/btn3"
-                android:textSize="30sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
+                android:layout_below="@id/btn3"
+                android:text="test4"
+                android:textSize="30sp" />
         </RelativeLayout>
     </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="adafafdas"
-            android:textSize="30sp"/>
-    </LinearLayout>
 
 
 </android.support.v4.widget.DrawerLayout>
