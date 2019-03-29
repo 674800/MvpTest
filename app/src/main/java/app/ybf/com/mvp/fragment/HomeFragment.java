@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import app.ybf.com.mvp.MyApplication;
 import app.ybf.com.mvp.R;
+import app.ybf.com.mvp.Utils.LogUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -23,6 +24,7 @@ import butterknife.Unbinder;
  * Created by ybf on 2019/3/28.
  */
 public class HomeFragment extends BaseFragment {
+    private String TAG = getClass().getSimpleName();
     @BindView(R.id.fragment_home_layout)
     FrameLayout fragmentHomeLayout;
     Unbinder unbinder;
@@ -70,7 +72,12 @@ public class HomeFragment extends BaseFragment {
     }
 
 
-
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        LogUtils.i(TAG,"isVisibleToUser="+isVisibleToUser);
+       // getView().setVisibility(isVisibleToUser ? View.VISIBLE : View.GONE);
+    }
 
     @Override
     public void onDestroyView() {
@@ -88,6 +95,7 @@ public class HomeFragment extends BaseFragment {
                 Toast.makeText(MyApplication.getInstance(),"open",Toast.LENGTH_SHORT).show();
 
                     replaceFragment(new TestFragment());
+
                 break;
         }
     }
@@ -100,10 +108,14 @@ public class HomeFragment extends BaseFragment {
 // 2.开启一个事务，通过调用beginTransaction()方法开启
         FragmentTransaction  transaction = fragmentManager.beginTransaction();
 // 3.向容器内添加或替换碎片，一般使用replace()方法实现，需要传入容器的id和待添加的碎片实例
+        transaction.hide(this);
         transaction.add(R.id.fragment_home_layout, fragment);  //fr_container不能为fragment布局，可使用线性布局相对布局等。
 // 4.使用addToBackStack()方法，将事务添加到返回栈中，填入的是用于描述返回栈的一个名字
         transaction.addToBackStack(null);
 // 5.提交事物,调用commit()方法来完成
         transaction.commit();
+
     }
+
+
 }

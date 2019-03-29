@@ -14,7 +14,7 @@ import android.view.ViewGroup;
  * Created by ybf on 2019/3/28.
  */
 public abstract  class BaseFragment extends Fragment {
-
+    View view;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +23,13 @@ public abstract  class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(setFragmtContentView(),container,false);
+        if(view !=null){
+            ViewGroup parent = (ViewGroup) view.getParent();
+            if(parent != null){
+                parent.removeView(view);
+            }
+        }
+         view = inflater.inflate(setFragmtContentView(),container,false);
         return view;
     }
 
