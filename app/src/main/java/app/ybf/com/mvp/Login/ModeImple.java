@@ -7,6 +7,7 @@ public class ModeImple implements ModeInterface {
 
     /**
      * 登陆判断逻辑在Mode 里面处理，通过model 接口回调给present
+     * Mode 持有view的 引用
      * @param longin
      */
     @Override
