@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/TouchTest" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/fragmentTest" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

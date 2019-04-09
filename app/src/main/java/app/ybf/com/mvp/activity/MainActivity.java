@@ -3,7 +3,6 @@ package app.ybf.com.mvp.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -16,24 +15,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import app.ybf.com.mvp.MyApplication;
 import app.ybf.com.mvp.R;
 import app.ybf.com.mvp.Utils.LogUtils;
+import app.ybf.com.mvp.View.NoscrollViewPager;
 import app.ybf.com.mvp.adapter.ViewpagerAdapter;
-import app.ybf.com.mvp.fragment.HomeFragment;
-import app.ybf.com.mvp.fragment.LikeFragment;
-import app.ybf.com.mvp.fragment.LocationFragment;
-import app.ybf.com.mvp.fragment.PerisonFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     @BindView(R.id.viewpager)
-    ViewPager viewpager;
+    NoscrollViewPager viewpager;
     @BindView(R.id.rb_home)
     RadioButton rbHome;
     @BindView(R.id.rb_location)
@@ -60,7 +53,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     RelativeLayout left;
     @BindView(R.id.drawerlayout)
     DrawerLayout drawerlayout;
-    private List<Fragment> list = new ArrayList<>();
     private static final int Home = 0;
     private static final int Location = 1;
     private static final int Like = 2;
@@ -127,20 +119,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * 初始化frament
      */
     private void initFragment() {
-        Fragment homefragment = new HomeFragment();
-        Fragment locationfragment = new LocationFragment();
-        Fragment likefragment = new LikeFragment();
-        Fragment persionfragment = new PerisonFragment();
-        list.add(homefragment);
-        list.add(locationfragment);
-        list.add(likefragment);
-        list.add(persionfragment);
+
     }
 
     @Override
     public void initData() {
         android.support.v4.app.FragmentManager mFragmentManager = getSupportFragmentManager();
-        ViewpagerAdapter adapter = new ViewpagerAdapter(mFragmentManager, list);
+        ViewpagerAdapter adapter = new ViewpagerAdapter(mFragmentManager);
         viewpager.setAdapter(adapter);
         viewpager.setCurrentItem(Home);
         setFragmentTitle(Home);
@@ -213,19 +198,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 Toast.makeText(MyApplication.getInstance(), "bt1", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.rb_home:
-                viewpager.setCurrentItem(Home);
+                viewpager.setCurrentItem(Home,false);
                 setFragmentTitle(Home);
                 break;
             case R.id.rb_location:
-                viewpager.setCurrentItem(Location);
+                viewpager.setCurrentItem(Location,false);
                 setFragmentTitle(Location);
                 break;
             case R.id.rb_like:
-                viewpager.setCurrentItem(Like);
+                viewpager.setCurrentItem(Like,false);
                 setFragmentTitle(Like);
                 break;
             case R.id.rb_me:
-                viewpager.setCurrentItem(Persion);
+                viewpager.setCurrentItem(Persion,false);
                 setFragmentTitle(Persion);
                 break;
         }

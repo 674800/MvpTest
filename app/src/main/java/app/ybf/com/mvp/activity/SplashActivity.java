@@ -60,7 +60,7 @@ public class SplashActivity extends Activity implements LoginIngerface {
         mpresent = new present();
         mpresent.setPresentLinister(this);
 
-
+        enterMainActivity(2000);
     }
 
     /**
