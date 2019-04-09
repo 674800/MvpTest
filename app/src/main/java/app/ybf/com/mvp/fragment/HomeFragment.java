@@ -90,13 +90,7 @@ public class HomeFragment extends BaseFragment {
                 break;
             case R.id.btn_home_open:
                 Toast.makeText(MyApplication.getInstance(),"open",Toast.LENGTH_SHORT).show();
-
-
                 break;
         }
     }
-
-
-
-
 }
